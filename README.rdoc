@@ -1,0 +1,3 @@
+= Redmine own time entries
+
+Plugin which allow to setup project permisions to show own time entries to user
