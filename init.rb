@@ -1,5 +1,16 @@
 require 'redmine'
 
+require 'own_time_entries_project_patch'
+Rails.configuration.to_prepare do
+  Role.send(:include, OwnTimeEntriesProjectPatch)
+end
+
+require 'dispatcher'
+require 'timelog_controller_patch'
+Dispatcher.to_prepare do
+  TimelogController.send(:include, OwnTimeEntries::TimelogControllerPatch)
+end
+
 Redmine::Plugin.register :redmine_own_time_entries do
   name 'Redmine Own Time Entries plugin'
   author '//Twinslash'
