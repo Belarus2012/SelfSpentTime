@@ -1,11 +1,5 @@
 require 'redmine'
 
-require 'own_time_entries_role_patch'
-
-Rails.configuration.to_prepare do
-  Role.send(:include, OwnTimeEntriesRolePatch)
-end
-
 Redmine::Plugin.register :redmine_own_time_entries do
   name 'Redmine Own Time Entries plugin'
   author '//Twinslash'
