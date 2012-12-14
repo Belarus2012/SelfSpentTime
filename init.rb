@@ -2,13 +2,15 @@ require 'redmine'
 
 require 'own_time_entries_project_patch'
 Rails.configuration.to_prepare do
-  Role.send(:include, OwnTimeEntriesProjectPatch)
+  Project.send(:include, OwnTimeEntriesProjectPatch)
 end
 
 require 'dispatcher'
 require 'timelog_controller_patch'
+require 'projects_controller_patch'
 Dispatcher.to_prepare do
   TimelogController.send(:include, OwnTimeEntries::TimelogControllerPatch)
+  ProjectsController.send(:include, OwnTimeEntries::ProjectsControllerPatch)
 end
 
 Redmine::Plugin.register :redmine_own_time_entries do
