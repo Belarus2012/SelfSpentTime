@@ -5,7 +5,7 @@ Plugin which allow to setup project permisions to show own time entries to user
 
 == Redmine version
 
-Version 1.3
+Version 1.4.0-stable
 
 == Installation
 
