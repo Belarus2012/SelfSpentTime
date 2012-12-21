@@ -8,9 +8,11 @@ require 'redmine'
 require 'dispatcher'
 # require 'timelog_controller_patch'
 require 'projects_controller_patch'
+require 'application_controller_patch'
 Dispatcher.to_prepare do
 #   TimelogController.send(:include, OwnTimeEntries::TimelogControllerPatch)
   ProjectsController.send(:include, OwnTimeEntries::ProjectsControllerPatch)
+  ApplicationController.send(:include, OwnTimeEntries::ApplicationControllerPatch)
 end
 
 Redmine::Plugin.register :redmine_own_time_entries do
