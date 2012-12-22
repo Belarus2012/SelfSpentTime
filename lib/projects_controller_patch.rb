@@ -28,15 +28,6 @@ module OwnTimeEntries
 
           # =========== patch start ===========
           if User.current.allowed_to?(:view_time_entries, @project) || User.current.allowed_to?(:view_only_own_time_entries, @project)
-            roles = User.current.roles_for_project(@project)
-            view_time_entries = roles.detect { |role| role.allowed_to?(:view_time_entries) }
-            view_only_own_time_entries = roles.detect { |role| role.allowed_to?(:view_only_own_time_entries) }
-            # if user should not see time_entries (settings - view_time_entries)
-            # but user has permission to see own time_entries (settings - view_only_own_time_entries)
-            # add a condition time_entries.user_id = User.current.id
-            if !view_time_entries && view_only_own_time_entries
-              cond << " AND #{TimeEntry.table_name}.user_id = #{User.current.id} "
-            end
             # =========== patch end ===========
             @total_hours = TimeEntry.visible.sum(:hours, :include => :project, :conditions => cond).to_f
           end

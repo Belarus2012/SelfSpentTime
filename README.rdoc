@@ -10,7 +10,7 @@ Version 1.4.0-stable
 
 == Installation
 
-Just put plugin to the folder REDMINE/vendor/plugins
+Just put plugin to the folder REDMINE/vendor/plugins and restart Redmine
 
 No migrations, no new gems.
 
@@ -23,7 +23,6 @@ Setup role permission "View only own time entries" to allow user see only own ti
 == Changes
 
 Patches:
-  Project.allowed_to_condition
+  ApplicationController.authorize
   ProjectsController.show
-  TimelogController.index
-  TimelogController.find_optional_project
+  Project.allowed_to_condition
