@@ -27,3 +27,5 @@ Patches:
   ProjectsController.show
   TimelogController.index
   TimelogController.find_optional_project
+  TimeEntryReportsController.report
+  TimeEntryReportsController.find_optional_project

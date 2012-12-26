@@ -7,9 +7,11 @@ end
 
 require 'dispatcher'
 require 'timelog_controller_patch'
+require 'time_entry_reports_controller_patch'
 require 'projects_controller_patch'
 Dispatcher.to_prepare do
   TimelogController.send(:include, OwnTimeEntries::TimelogControllerPatch)
+  TimeEntryReportsController.send(:include, OwnTimeEntries::TimeEntryReportsControllerPatch)
   ProjectsController.send(:include, OwnTimeEntries::ProjectsControllerPatch)
 end
 

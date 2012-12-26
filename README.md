@@ -5,7 +5,7 @@ Plugin which allow to setup project permisions to show own time entries to user
 
 ## Redmine version
 
-Version 1.3.0-stable
+Versions: 1.3.0, 1.3-stable
 
 
 ## Installation
@@ -27,3 +27,5 @@ Patches:
   ProjectsController.show
   TimelogController.index
   TimelogController.find_optional_project
+  TimeEntryReportsController.report
+  TimeEntryReportsController.find_optional_project
