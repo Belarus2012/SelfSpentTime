@@ -26,3 +26,4 @@ Patches:
   ApplicationController.authorize
   ProjectsController.show
   Project.allowed_to_condition
+  Issue#total_spent_hours

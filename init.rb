@@ -1,8 +1,10 @@
 require 'redmine'
 
 require 'own_time_entries_project_patch'
+require 'own_time_entries_issue_patch'
 Rails.configuration.to_prepare do
   Project.send(:include, OwnTimeEntriesProjectPatch)
+  Issue.send(:include, OwnTimeEntriesIssuePatch)
 end
 
 require 'dispatcher'

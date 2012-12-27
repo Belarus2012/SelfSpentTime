@@ -23,6 +23,7 @@ Setup role permission "View only own time entries" to allow user see only own ti
 ## Changes
 
 Patches:
-  ApplicationController.authorize
-  ProjectsController.show
-  Project.allowed_to_condition
+  * ApplicationController.authorize
+  * ProjectsController.show
+  * Project.allowed_to_condition
+  * Issue#total_spent_hours

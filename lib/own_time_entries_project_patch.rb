@@ -2,6 +2,7 @@ module OwnTimeEntriesProjectPatch
 
   def self.included(base)
     base.class_eval do
+      unloadable
 
       # Returns a SQL conditions string used to find all projects for which +user+ has the given +permission+
       #
