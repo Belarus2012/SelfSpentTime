@@ -29,3 +29,5 @@ Patches:
   TimelogController.find_optional_project
   TimeEntryReportsController.report
   TimeEntryReportsController.find_optional_project
+  Issue#spent_hours
+  Issue#show (view)

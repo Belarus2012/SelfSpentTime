@@ -23,9 +23,11 @@ Setup role permission "View only own time entries" to allow user see only own ti
 ## Changes
 
 Patches:
-  Project.allowed_to_condition
-  ProjectsController.show
-  TimelogController.index
-  TimelogController.find_optional_project
-  TimeEntryReportsController.report
-  TimeEntryReportsController.find_optional_project
+  * Project.allowed_to_condition
+  * ProjectsController.show
+  * TimelogController.index
+  * TimelogController.find_optional_project
+  * TimeEntryReportsController.report
+  * TimeEntryReportsController.find_optional_project
+  * Issue#spent_hours
+  * Issue#show (view)
