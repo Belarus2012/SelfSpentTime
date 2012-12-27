@@ -11,7 +11,7 @@ module OwnTimeEntries
           # =========== patch start ===========
           # if it is not allowed but ctrl/action = timelog/index
           # and view_only_own_time_entries is enabled for user then allow user to timelog page
-          if !allowed && (ctrl == "timelog" && action == "index")
+          if !allowed && (ctrl == "timelog" && ["index", "report"].include?(action))
             allowed = User.current.allowed_to?(:view_only_own_time_entries, @project || @projects, :global => true)
           end
           # =========== patch end ===========
