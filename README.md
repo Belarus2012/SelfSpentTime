@@ -1,11 +1,23 @@
-Own time entries
-===============
+# Redmine own time entries
 
-Redmine plugin to allow user see own time entries.
-Redmine versions 1.3.0 and 1.4.0 are supported now.
+Plugin which allow to setup project permisions to show own time entries to user
 
-Switch to needed branch and read instruction there.
 
-Branches:
-  - redmine-version-1.3.0-stable
-  - redmine-version-1.4.0-stable
+## Redmine version
+
+Versions: 2.1-stable
+
+
+## Installation
+
+Just put plugin to the folder REDMINE/plugins and restart Redmine
+
+No migrations, no new gems.
+
+
+## Usage
+
+Setup role permission "View only own time entries" to allow user see only own time entries
+
+
+## Changes
