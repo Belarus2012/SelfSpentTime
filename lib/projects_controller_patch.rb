@@ -3,6 +3,7 @@ module OwnTimeEntries
 
     def self.included(base)
       base.class_eval do
+        unloadable
 
         # override method to add conditions to filter
         # Show @project

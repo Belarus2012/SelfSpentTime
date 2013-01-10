@@ -1,14 +1,13 @@
+require 'redmine'
+
 require 'own_time_entries_project_patch'
 require 'own_time_entries_issue_patch'
+require 'projects_controller_patch'
+require 'application_controller_patch'
 Rails.configuration.to_prepare do
   Project.send(:include, OwnTimeEntriesProjectPatch)
   Issue.send(:include, OwnTimeEntriesIssuePatch)
-end
 
-# require 'dispatcher'
-require 'projects_controller_patch'
-require 'application_controller_patch'
-ActionDispatch::Callbacks.to_prepare do
   ProjectsController.send(:include, OwnTimeEntries::ProjectsControllerPatch)
   ApplicationController.send(:include, OwnTimeEntries::ApplicationControllerPatch)
 end

@@ -3,6 +3,7 @@ module OwnTimeEntries
 
     def self.included(base)
       base.class_eval do
+        unloadable
 
         # override method to change authorization logic
         # Authorize the user for the requested action
