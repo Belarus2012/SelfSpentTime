@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_own_time_entries do
   author '//Twinslash'
   description 'Plugin to show users only own time entries in a project'
   version '0.0.1'
-  url ''
+  url 'https://github.com/Belarus2012/SelfSpentTime'
   author_url 'http://twinslash.com'
 
   # This plugin version for redmine 2.1
