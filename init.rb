@@ -1,16 +1,5 @@
 require 'redmine'
-
-require 'own_time_entries_project_patch'
-require 'own_time_entries_issue_patch'
-require 'projects_controller_patch'
-require 'application_controller_patch'
-Rails.configuration.to_prepare do
-  Project.send(:include, OwnTimeEntriesProjectPatch)
-  Issue.send(:include, OwnTimeEntriesIssuePatch)
-
-  ProjectsController.send(:include, OwnTimeEntries::ProjectsControllerPatch)
-  ApplicationController.send(:include, OwnTimeEntries::ApplicationControllerPatch)
-end
+require 'redmine_own_time_entries'
 
 Redmine::Plugin.register :redmine_own_time_entries do
   name 'Redmine Own Time Entries plugin'
