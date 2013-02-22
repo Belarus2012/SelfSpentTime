@@ -5,7 +5,7 @@ Plugin which allow to setup project permisions to show own time entries to user
 
 ## Redmine version
 
-Versions: 2.1-stable
+Versions: 2.1-stable, 2.2-stable
 
 
 ## Installation
@@ -19,5 +19,3 @@ No migrations, no new gems.
 
 Setup role permission "View only own time entries" to allow user see only own time entries
 
-
-## Changes
