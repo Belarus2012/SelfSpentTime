@@ -1,3 +1,5 @@
+require_dependency 'redmine_own_time_entries/hooks'
+
 require 'redmine_own_time_entries/own_time_entries_project_patch'
 require 'redmine_own_time_entries/own_time_entries_issue_patch'
 require 'redmine_own_time_entries/projects_controller_patch'

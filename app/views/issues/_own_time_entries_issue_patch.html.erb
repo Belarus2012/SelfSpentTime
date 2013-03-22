@@ -1,0 +1,12 @@
+<% if !User.current.allowed_to?(:view_time_entries, @project) && (view_only_own_time_entries = User.current.allowed_to?(:view_only_own_time_entries, @project)) %>
+  <% options = view_only_own_time_entries ? { :user => User.current } : {} %>
+  <% total_spent_hours = @issue.total_spent_hours(options) %>
+  <% td_value = (total_spent_hours > 0 ? link_to(l_hours(total_spent_hours), project_issue_time_entries_path(@project, @issue)) : "-") %>
+  <% th_value = "#{l(:label_spent_time)}:" %>
+
+  <%= javascript_tag do %>
+    $('div.issue.details table:first tr:first th:eq(1)').html('<%= th_value %>').addClass('spent-time');
+    $('div.issue.details table:first tr:first td:eq(1)').html('<%= td_value %>').addClass('spent-time');
+  <% end %>
+
+<% end %>
