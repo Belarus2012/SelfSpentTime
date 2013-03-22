@@ -5,8 +5,18 @@
   <% th_value = "#{l(:label_spent_time)}:" %>
 
   <%= javascript_tag do %>
-    $('div.issue.details table:first tr:first th:eq(1)').html('<%= th_value %>').addClass('spent-time');
-    $('div.issue.details table:first tr:first td:eq(1)').html('<%= td_value %>').addClass('spent-time');
+    // find first empty th/td element in the 2nd column in the table of attributes
+    var th = $('div.issue.details table:first tr th:nth-child(3):not([class]):first');
+    var td = $('div.issue.details table:first tr td:nth-child(4):not([class]):first');
+
+    if (th.size() > 0){
+      th.html('<%= th_value %>').addClass('spent-time');
+      td.html('<%= td_value %>').addClass('spent-time');
+    } else {
+      // if no empty element in the 2nd column append new line (tr)
+      var table = $('div.issue.details table:first');
+      table.append('<tr><th></th><td></td><th class="spent-time"><%= th_value %></th><td class="spent-time"><%= td_value %></td></tr>');
+    }
   <% end %>
 
 <% end %>
