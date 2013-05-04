@@ -10,7 +10,12 @@ Versions: 2.1-stable, 2.2-stable
 
 ## Installation
 
-Just put plugin to the folder REDMINE/plugins and restart Redmine
+Put plugin to the folder REDMINE/plugins, name directory as redmine_own_time_entries and restart Redmine
+
+```bash
+cd REDMINE/plugins
+git clone https://github.com/Belarus2012/SelfSpentTime.git redmine_own_time_entries
+```
 
 No migrations, no new gems.
 
