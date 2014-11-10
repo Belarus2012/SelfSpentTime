@@ -22,19 +22,19 @@ module OwnTimeEntriesProjectPatch
     # * :member => limit the condition to the user projects
     def allowed_to_condition_with_own_time_entries(user, permission, options={})
       statement = allowed_to_condition_without_own_time_entries(user, permission, options)
-      statement_by_role = {}
-      if user.logged? and (permission == :view_time_entries)
+      project_list = []
+      if user.logged? and !user.admin? and (permission == :view_time_entries)
         user.projects_by_role.each do |role, projects|
           if role.allowed_to?(:view_only_own_time_entries) && projects.any?
-            statement_by_role[role] = "#{Project.table_name}.id IN (#{projects.collect(&:id).join(',')})"
+            project_list << projects.collect(&:id)
           end
         end
       end
 
-      if statement_by_role.empty?
+      if project_list.empty?
         statement
       else
-        statement.chomp("))") << " OR (#{statement_by_role.values.join(' OR ')})) AND #{TimeEntry.table_name}.user_id = #{user.id})"
+        statement.chomp("))") << " OR (#{Project.table_name}.id IN (#{project_list.flatten.uniq.join(',')}) AND (#{TimeEntry.table_name}.user_id = #{user.id}))))"
       end
     end
 
