@@ -20,8 +20,8 @@ module OwnTimeEntriesProjectPatch
     # * :project => limit the condition to project
     # * :with_subprojects => limit the condition to project and its subprojects
     # * :member => limit the condition to the user projects
-    def allowed_to_condition_with_own_time_entries(user, permission, options={})
-      statement = allowed_to_condition_without_own_time_entries(user, permission, options)
+    def allowed_to_condition_with_own_time_entries(user, permission, options={}, &block)
+      statement = allowed_to_condition_without_own_time_entries(user, permission, options, &block)
       project_list = []
       if user.logged? and !user.admin? and (permission == :view_time_entries)
         user.projects_by_role.each do |role, projects|
