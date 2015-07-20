@@ -34,7 +34,10 @@ module OwnTimeEntriesProjectPatch
       if project_list.empty?
         statement
       else
-        statement.chomp("))") << " OR (#{Project.table_name}.id IN (#{project_list.flatten.uniq.join(',')}) AND (#{TimeEntry.table_name}.user_id = #{user.id}))))"
+        chomp = statement.end_with? "))"
+        statement = statement.chomp("))") << " OR (#{Project.table_name}.id IN (#{project_list.flatten.uniq.join(',')}) AND (#{TimeEntry.table_name}.user_id = #{user.id}))"
+        statement += "))" if chomp
+        statement
       end
     end
 
