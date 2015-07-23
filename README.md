@@ -3,9 +3,9 @@
 Plugin which allow to setup project permisions to show own time entries to user
 
 
-## Redmine version
+## Redmine version supported
 
-Versions: 2.1-stable, 2.2-stable
+2.1-stable and later 2.x releases
 
 
 ## Installation
